@@ -19,12 +19,12 @@ const { validate } = validator;
 export default class TodoController {
   constructor(private todoService: TodoService) {}
   @Get()
-  async index(): Promise<FormattedTodo[]> {
+  async index() {
     return this.todoService.findAll();
   }
 
   @Get("/:id")
-  async show(@Param("id") id: string): Promise<FormattedTodo | ActionResult> {
+  async show(@Param("id") id: string) {
     const todo = await this.todoService.findById(id);
 
     if (todo) {
@@ -35,7 +35,7 @@ export default class TodoController {
   }
 
   @Post()
-  async store(@Body(TodoModel) data: TodoModel): Promise<ActionResult> {
+  async store(@Body(TodoModel) data: TodoModel) {
     const errors = await validate(data, { validationError: { target: false } });
 
     if (errors.length) {
@@ -47,10 +47,7 @@ export default class TodoController {
   }
 
   @Put("/:id")
-  async update(
-    @Param("id") id: string,
-    @Body(TodoModel) data: TodoModel,
-  ): Promise<ActionResult | any> {
+  async update(@Param("id") id: string, @Body(TodoModel) data: TodoModel) {
     const errors = await validate(data, { validationError: { target: false } });
 
     if (errors.length) {
@@ -65,7 +62,7 @@ export default class TodoController {
   }
 
   @Delete("/:id")
-  async delete(@Param("id") id: string): Promise<string> {
+  async delete(@Param("id") id: string) {
     return this.todoService.removeById(id);
   }
 }

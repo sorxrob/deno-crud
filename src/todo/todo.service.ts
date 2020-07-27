@@ -1,10 +1,10 @@
-import { TodoModel, Todo, FormattedTodo } from './todo.model.ts';
-import { db } from '../../db.ts';
+import { TodoModel, Todo, FormattedTodo } from "./todo.model.ts";
+import { db } from "../../db.ts";
 
-const todos = db.collection<Todo>('todos');
+const todos = db.collection<Todo>("todos");
 
 export default class TodoService {
-  async findAll(): Promise<FormattedTodo[]> {
+  async findAll() {
     const result = await todos.find();
     return result.map((todo) => {
       return {
@@ -16,7 +16,7 @@ export default class TodoService {
     });
   }
 
-  async findById(id: string): Promise<FormattedTodo | null> {
+  async findById(id: string) {
     const todo = await todos.findOne({
       _id: {
         $oid: id,
@@ -35,7 +35,7 @@ export default class TodoService {
     return null;
   }
 
-  async create(data: TodoModel): Promise<any> {
+  async create(data: TodoModel) {
     const result = await todos.insertOne(data);
     return {
       id: result.$oid,
@@ -45,19 +45,19 @@ export default class TodoService {
     };
   }
 
-  async update(id: string, data: TodoModel): Promise<string> {
+  async update(id: string, data: TodoModel) {
     await todos.updateOne(
       {
         _id: {
           $oid: id,
         },
       },
-      data
+      data,
     );
     return id;
   }
 
-  async removeById(id: string): Promise<string> {
+  async removeById(id: string) {
     await todos.deleteOne({
       _id: {
         $oid: id,
