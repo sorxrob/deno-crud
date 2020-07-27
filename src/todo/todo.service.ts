@@ -1,4 +1,4 @@
-import { TodoModel, Todo, FormattedTodo } from "./todo.model.ts";
+import { TodoModel, Todo } from "./todo.model.ts";
 import { db } from "../../db.ts";
 
 const todos = db.collection<Todo>("todos");
