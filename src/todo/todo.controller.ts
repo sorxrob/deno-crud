@@ -4,13 +4,12 @@ import {
   Body,
   Content,
   Get,
-  ActionResult,
   Param,
   Delete,
   Put,
 } from "https://deno.land/x/alosaur@v0.21.1/mod.ts";
 import validator from "https://jspm.dev/class-validator@0.8.5";
-import { TodoModel, FormattedTodo } from "./todo.model.ts";
+import { TodoModel } from "./todo.model.ts";
 import TodoService from "./todo.service.ts";
 
 const { validate } = validator;
