@@ -1,4 +1,4 @@
-# .deno_plugins
+.deno_plugins
 .env
 .prettierrc
 .vscode
