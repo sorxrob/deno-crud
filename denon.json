@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": {
-      "cmd": "deno run app.ts",
+      "cmd": "deno run index.ts",
       "desc": "Start app",
       "tsconfig": "tsconfig.json",
       "allow": ["read", "net", "write", "plugin"],
