@@ -9,9 +9,6 @@ const { plainToClass } = transformer;
 const argPort = parse(Deno.args).port;
 const PORT = argPort ? `:${argPort}` : ':8000';
 
-console.log(argPort)
-console.log(PORT)
-
 const app = new App({
   areas: [TodoArea],
 });
