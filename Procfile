@@ -1,1 +1,1 @@
-web: deno run --allow-net=:${PORT} --allow-read --allow-write --allow-plugin --unstable -c tsconfig.json index.ts --port=${PORT}
+web: deno run --allow-net=:${PORT},github.com --allow-read --allow-write --allow-plugin --unstable -c tsconfig.json index.ts --port=${PORT}
