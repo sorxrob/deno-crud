@@ -4,7 +4,7 @@ import transformer from 'https://jspm.dev/class-transformer@0.2.3';
 
 import TodoArea from './src/todo/todo.area.ts';
 
-const { plainToClass } = transformer;
+const { plainToClass }: any = transformer;
 
 const argPort = parse(Deno.args).port;
 const PORT = argPort ? `:${argPort}` : ':8000';
