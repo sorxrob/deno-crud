@@ -4,7 +4,7 @@
       "cmd": "deno run index.ts",
       "desc": "Start app",
       "tsconfig": "tsconfig.json",
-      "allow": ["read", "net", "write", "plugin"],
+      "allow": ["read", "net", "write", "plugin", "env"],
       "unstable": true
     }
   }
